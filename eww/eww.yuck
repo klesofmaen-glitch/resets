@@ -1,0 +1,59 @@
+;; ~/.config/eww/eww.yuck
+
+;; Объявляем переменные по отдельности
+(defpoll time :interval "1s" `date "+%H:%M"`)
+(defpoll date :interval "30s" `date "+%A, %d %B"`)
+(defpoll volume :interval "5s" `pamixer --get-volume`)
+(defpoll brightness :interval "5s" `brightnessctl g`)
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       (button :class "ws-btn" :onclick "hyprctl dispatch workspace 1" "")
+       (button :class "ws-btn" :onclick "hyprctl dispatch workspace 2" "")
+       (button :class "ws-btn" :onclick "hyprctl dispatch workspace 3" "")
+       (button :class "ws-btn" :onclick "hyprctl dispatch workspace 4" "")
+       (button :class "ws-btn" :onclick "hyprctl dispatch workspace 5" "")))
+
+(defwidget date-widget []
+  (box :class "date-box"
+       (label :class "date-label" :text {date})))
+
+(defwidget time-widget []
+  (box :class "time-box"
+       (label :class "time-label" :text {time})))
+
+(defwidget volume-widget []
+  (box :class "volume-box"
+       (label :class "icon" :text "")
+       (label :class "volume-label" :text {volume})))
+
+(defwidget brightness-widget []
+  (box :class "brightness-box"
+       (label :class "icon" :text "")
+       (label :class "brightness-label" :text {brightness})))
+
+(defwidget bar []
+  (box :class "bar"
+       :orientation "h"
+       :space-evenly false
+       (box :class "left-widgets"
+            (workspaces))
+       (box :class "center-widgets"
+            (date-widget))
+       (box :class "right-widgets"
+            (volume-widget)
+            (brightness-widget)
+            (time-widget))))
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "42px"
+                      :anchor "top center")
+  :reserve (struts :side "top" :distance "42px")
+  :stacking "bottom"
+  (bar))

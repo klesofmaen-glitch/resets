@@ -1,0 +1,15 @@
+# Wofi configuration
+show=drun
+prompt=Search...
+insensitive=true
+allow_markup=true
+mode=drun,run
+width=1200
+height=800
+location=center
+orientation=vertical
+content_horizontal=fill
+cycle=true
+columns=1
+lines=12
+term=alacritty
