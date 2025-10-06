@@ -1,120 +1,55 @@
-/* Пастельно-темно-серый фон с темно-красным текстом */
-
-* {
-    font-family: "Inter", "Font Awesome 6 Free", sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-}
-
 window {
-    background-color: rgba(60, 60, 65, 0.98);
-    background: linear-gradient(135deg, 
-        rgba(55, 55, 60, 0.95) 0%,
-        rgba(70, 70, 75, 0.95) 100%);
-    border: 2px solid rgba(100, 40, 40, 0.6);
-    border-radius: 20px;
-    box-shadow: 
-        0 0 0 1px rgba(120, 50, 50, 0.3),
-        0 25px 80px rgba(0, 0, 0, 0.4);
-    margin: 20px;
+    transparency: "rgb";
+    background-color: rgba(30, 30, 30, 0.9);
+    border: 2px solid #5A2A2A;
+    border-radius: 8px;
+    width: 300px;
 }
 
 #input {
-    background-color: rgba(45, 45, 50, 0.9);
-    border: 2px solid rgba(100, 40, 40, 0.5);
-    border-radius: 14px;
-    padding: 16px 24px;
-    margin: 24px;
-    margin-bottom: 16px;
-    color: #8b0000;
-    font-size: 18px;
-    caret-color: #8b0000;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
-}
-
-#input:focus {
-    border-color: rgba(139, 0, 0, 0.8);
-    box-shadow: 
-        inset 0 2px 6px rgba(0, 0, 0, 0.4),
-        0 0 0 3px rgba(139, 0, 0, 0.2);
-    color: #8b0000;
-}
-
-#input::placeholder {
-    color: #a05252;
+    background-color: rgba(90, 42, 42, 0.9);
+    border: none;
+    border-radius: 4px;
+    color: #E8E8E8;
+    padding: 8px;
+    margin: 5px;
+    font-size: 14px;
 }
 
 #inner-box {
-    background-color: transparent;
-    border-radius: 14px;
-    margin: 16px 24px 24px 24px;
+    margin: 5px;
 }
 
 #outer-box {
-    margin: 0;
-    padding: 0;
+    margin: 5px;
 }
 
 #scroll {
-    margin: 0;
-    border: none;
-    border-radius: 14px;
-}
-
-#entry {
-    padding: 16px 20px;
-    border-radius: 12px;
-    margin: 6px 0;
-    color: #8b0000;
-    transition: all 0.15s ease;
-    border: 1px solid transparent;
-}
-
-#entry:selected {
-    background: linear-gradient(135deg, 
-        rgba(139, 0, 0, 0.15) 0%,
-        rgba(178, 34, 34, 0.25) 100%);
-    border: 1px solid rgba(139, 0, 0, 0.4);
-    color: #8b0000;
-    box-shadow: 
-        0 4px 16px rgba(139, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-#entry:hover:not(:selected) {
-    background-color: rgba(80, 80, 85, 0.6);
-    color: #a52a2a;
-}
-
-#img {
-    margin-right: 20px;
-    min-width: 32px;
-    min-height: 32px;
+    margin: 5px;
 }
 
 #text {
-    color: inherit;
-    margin: 0;
+    color: #E8E8E8;
+    margin: 2px;
+    font-size: 13px;
 }
 
-#text:selected {
-    font-weight: 600;
-    color: #8b0000;
+#entry {
+    padding: 8px;
+    border-radius: 4px;
+    margin: 1px 0;
 }
 
-#prompt {
-    color: #8b0000;
-    font-weight: 600;
-    margin: 20px;
-    font-size: 18px;
+#entry:selected {
+    background-color: rgba(90, 42, 42, 0.7);
+    border: none;
 }
 
-/* Стиль для иконок */
-image {
-    color: #8b0000;
+#entry:selected #text {
+    color: #FFFFFF;
 }
 
-/* Стиль для разделителей */
-#entry:not(:first-child) {
-    border-top: 1px solid rgba(100, 40, 40, 0.2);
+.entry-section {
+    background-color: rgba(60, 60, 60, 0.8);
+    border-left: 3px solid #5A2A2A;
 }
