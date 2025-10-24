@@ -2,90 +2,52 @@
     "layer": "top",
     "position": "top",
     "height": 40,
-    "spacing": 8,
+    "spacing": 4,
+    "margin-top": 10,
+    "margin-bottom": 0,
+    "margin-left": 10,
+    "margin-right": 10,
     
-    "modules-left": ["hyprland/workspaces", "custom/media"],
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "disk", "pulseaudio", "network", "battery", "tray"],
-    
-    // Светло-синяя цветовая схема
-    "colors": {
-        "background": "rgba(230, 240, 255, 0.85)",
-        "background-alt": "rgba(200, 220, 245, 0.9)",
-        "foreground": "#2c5282",
-        "foreground-alt": "#3182ce",
-        "primary": "#4299e1",
-        "secondary": "#63b3ed",
-        "accent": "#90cdf4",
-        "urgent": "#e53e3e",
-        "warning": "#ed8936"
-    },
+    "modules-right": ["pulseaudio", "cpu", "memory", "battery", "tray"],
     
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        },
-        "on-click": "activate"
+            "1": "1 󰈹",
+            "2": "2 󰊖",
+            "3": "3 󰊌",
+            "4": "4 󰙯",
+            "5": "5 󰢹",
+            "urgent": "󰂭",
+            "focused": "󰮯",
+            "default": "󰊠"
+        }
+    },
+    
+    "custom/launcher": {
+        "format": "   ",
+        "on-click": "wofi --show drun",
+        "tooltip": false
     },
     
     "clock": {
-        "format": "{:%H:%M • %d/%m}",
+        "format": "{:%H:%M\n%d/%m}",
         "format-alt": "{:%A, %B %d, %Y}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "interval": 30
+        "tooltip-format": "<tt>{calendar}</tt>"
     },
     
     "cpu": {
-        "format": " {usage}%",
-        "tooltip": false,
-        "interval": 5
+        "format": "󰻠 {usage}%",
+        "tooltip": false
     },
     
     "memory": {
-        "format": " {percentage}%",
-        "interval": 5
-    },
-    
-    "disk": {
-        "format": " {percentage_used}%",
-        "path": "/",
-        "interval": 30
-    },
-    
-    "network": {
-        "format-wifi": " {essid}",
-        "format-ethernet": " {ifname}",
-        "format-disconnected": " Disconnected",
-        "format-alt": "{ipaddr}/{cidr}",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "on-click": "nm-connection-editor"
-    },
-    
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": " Muted",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
-        },
-        "scroll-step": 5,
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pavucontrol"
+        "format": "󰍛 {}%",
+        "tooltip": false
     },
     
     "battery": {
@@ -94,24 +56,23 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "interval": 10
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol"
     },
     
     "tray": {
-        "icon-size": 16,
-        "spacing": 8
-    },
-    
-    "custom/media": {
-        "format": "{}",
-        "max-length": 40,
-        "interval": 1,
-        "exec": "$HOME/.config/waybar/mediaplayer.sh",
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl stop"
+        "spacing": 10
     }
 }
